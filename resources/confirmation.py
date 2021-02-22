@@ -14,6 +14,7 @@ from libs.strings import gettext
 
 confirmation_schema = ConfirmationSchema()
 
+
 class Confirmation(Resource):
     @classmethod
     def get(cls, confirmation_id: str):
@@ -31,6 +32,7 @@ class Confirmation(Resource):
         confirmation.save_to_db()
 
         return redirect(os.environ.get("CLIENT_URL") + "/confirmed", code=302)
+
 
 class ConfirmationByUser(Resource):
     @classmethod

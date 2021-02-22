@@ -5,6 +5,7 @@ from db import db
 from libs.mailgun import Mailgun
 from models.confirmation import ConfirmationModel
 
+
 class UserModel(db.Model):
     __tablename__ = "users"
 

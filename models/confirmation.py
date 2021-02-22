@@ -3,7 +3,8 @@ from uuid import uuid4
 
 from db import db
 
-CONFIRMATION_EXPIRATION_DELTA = 1800 # 30 minutes
+CONFIRMATION_EXPIRATION_DELTA = 1800  # 30 minutes
+
 
 class ConfirmationModel(db.Model):
     __table__name = "confirmations"

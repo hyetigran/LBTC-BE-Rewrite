@@ -7,7 +7,14 @@ from dotenv import load_dotenv
 from ma import ma
 from db import db
 from blacklist import BLACKLIST
-from resources.user import UserRegister, UserLogin, User, TokenRefresh, UserLogout, UserConfirm
+from resources.user import (
+    UserRegister,
+    UserLogin,
+    User,
+    TokenRefresh,
+    UserLogout,
+    UserConfirm,
+)
 
 app = Flask(__name__)
 load_dotenv(".env", verbose=True)
@@ -18,6 +25,7 @@ api = Api(app)
 def create_tables():
     db.create_all()
 
+
 @app.errorhandler(ValidationError)
 def handle_marshmallow_validation(err):
     return jsonify(err.messages), 400
@@ -25,11 +33,11 @@ def handle_marshmallow_validation(err):
 
 jwt = JWTManager(app)
 
+
 @jwt.token_in_blacklist_loader
 def check_if_token_in_blacklist(decrypted_token):
-    return (
-        decrypted_token["jti"] in BLACKLIST
-    )
+    return decrypted_token["jti"] in BLACKLIST
+
 
 api.add_resource(UserRegister, "/register")
 api.add_resource(User, "/user/<int:user_id>")
