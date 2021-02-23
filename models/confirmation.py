@@ -7,7 +7,7 @@ CONFIRMATION_EXPIRATION_DELTA = 1800  # 30 minutes
 
 
 class ConfirmationModel(db.Model):
-    __table__name = "confirmations"
+    __tablename__ = "confirmations"
 
     id = db.Column(db.String(50), primary_key=True)
     expire_at = db.Column(db.Integer, nullable=False)
