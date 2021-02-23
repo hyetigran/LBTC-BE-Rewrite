@@ -15,7 +15,7 @@ from resources.user import (
     UserLogout,
 )
 from resources.confirmation import Confirmation, ConfirmationByUser
-from resources.offers import Offers, OfferList, Offer
+from resources.offer import OfferList, Offer, OfferCreate
 
 app = Flask(__name__)
 load_dotenv(".env", verbose=True)
