@@ -31,5 +31,7 @@
 
   "offer_not_found": "Offer not found.",
   "offer_created": "Offer created successfully.",
-  "offer_error_creating": "Internal server error. Failed to create an offer."
+  "offer_deleted": "Offer deleted successfully.",
+  "offer_error_creating": "Internal server error. Failed to create an offer.",
+  "offer_error_updating": "Internal server error. Failed to update an offer."
 }

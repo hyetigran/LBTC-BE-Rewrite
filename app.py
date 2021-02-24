@@ -15,7 +15,7 @@ from resources.user import (
     UserLogout,
 )
 from resources.confirmation import Confirmation, ConfirmationByUser
-from resources.offer import OfferList, Offer, OfferCreate
+from resources.offer import OfferList, Offer, OfferCreate, UserOfferList
 
 app = Flask(__name__)
 load_dotenv(".env", verbose=True)
@@ -25,8 +25,8 @@ app.config.from_envvar(
 )  # override with config.py (APPLICATION_SETTINGS points to config.py)
 api = Api(app)
 jwt = JWTManager(app)
-db.init_app(app) # remove after migrations
-ma.init_app(app) # remove after migrations
+db.init_app(app)  # remove after migrations
+ma.init_app(app)  # remove after migrations
 migrate = Migrate(app, db)
 
 
@@ -54,6 +54,7 @@ api.add_resource(ConfirmationByUser, "/confirmation/user/<int:user_id>")
 api.add_resource(OfferCreate, "/offer")
 api.add_resource(Offer, "/offer/<int:user_id>/<int:offer_id>")
 api.add_resource(OfferList, "/offers")
+api.add_resource(UserOfferList, "/offers/<int:user_id>")
 
 if __name__ == "__main__":
     db.init_app(app)
